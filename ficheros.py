@@ -7,13 +7,13 @@ def ver_text():
             fichero=open(nombre_fichero,"r")
             break
         except:
-            pass
+            print("El fichero introducudo no existe",chr(7))
     return fichero
 
 while True:
     print("TRABAJANDO CON TEXTOS")
     print("¿Que desea hacer?: ")
-    print("A)LEER UN TEXTO")
+    print("A)REPRODUCIR UN TEXTO")
     print("B)CONTAR EL NUMERO DE LINEAS DE TEXTO")
     print("C)CONTAR EL NUMERO DE PALABRAS DEL TEXTO")
     print("D)CONTAR EL NUMER0 DE CARACTERES DEL TEXTO")
@@ -49,7 +49,5 @@ while True:
         break
     else:
         subprocess.call(["cmd.exe","/C","cls"])
-
-
 
 
