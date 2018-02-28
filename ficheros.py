@@ -10,6 +10,13 @@ def ver_text():
             print("El fichero introducudo no existe",chr(7))
     return fichero
 
+def plu(n):
+    if n==1:
+        return"vez"
+    else:
+        return "veces"
+        
+
 while True:
     print("TRABAJANDO CON TEXTOS")
     print("¿Que desea hacer?: ")
@@ -19,11 +26,12 @@ while True:
     print("D)CONTAR EL NUMER0 DE CARACTERES DEL TEXTO")
     print("E)BUSCAR UNA PALABRA")
     op=input("Introduzca aquí su opción: ")
+    while op!=("A") and op!=("B") and op!=("C") and op!=("D") and op!=("E"):
+        op=input("Introduxca una opción válida: ")
     fichero=ver_text()
     if op==("E"):
         palabra=input("Introduzca palabra a buscar: ")
     contador=0
-    nconta=0
     print("")
     for linea in fichero:
         if op==("A"):
@@ -52,7 +60,7 @@ while True:
     elif op==("D"):
         print("El texto consta de",contador,"caracteres")
     elif op==("E"):
-        print("La palabrase se encontró",contador,"veces")
+        print("La palabrase se encontró",contador,plu(contador))
     print("") 
     conti=ns(input("¿Desea continuar?: "))
     if conti==("n"):
