@@ -94,3 +94,12 @@ def oper(ress):#SE PUEDE USAR EN "calculadora_cadena.py"
         ress=oper(str(input("Operación no válida: ")))
     return ress
 
+def opt(o,l):
+    while o not in l:
+        o=input("Introduzca una opción válida: ")
+    return o
+
+#EJEMPLO:
+#op=opt(input("opcion: "),["s","f","l"])
+#print(op)
+        
