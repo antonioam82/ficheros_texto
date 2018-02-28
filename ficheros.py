@@ -1,4 +1,4 @@
-from VALID import ns
+from VALID import ns,opt
 import subprocess
 def ver_text():
     while True:
@@ -25,9 +25,9 @@ while True:
     print("C)CONTAR EL NUMERO DE PALABRAS DEL TEXTO")
     print("D)CONTAR EL NUMER0 DE CARACTERES DEL TEXTO")
     print("E)BUSCAR UNA PALABRA")
-    op=input("Introduzca aquí su opción: ")
-    while op!=("A") and op!=("B") and op!=("C") and op!=("D") and op!=("E"):
-        op=input("Introduxca una opción válida: ")
+    op=opt(input("Introduzca aquí su opción: "),["A","B","C","D","E"])
+    #while op!=("A") and op!=("B") and op!=("C") and op!=("D") and op!=("E"):
+        #op=input("Introduzca una opción válida: ")
     fichero=ver_text()
     if op==("E"):
         palabra=input("Introduzca palabra a buscar: ")
@@ -60,7 +60,7 @@ while True:
     elif op==("D"):
         print("El texto consta de",contador,"caracteres")
     elif op==("E"):
-        print("La palabrase se encontró",contador,plu(contador))
+        print("La palabra se se encontró",contador,plu(contador))
     print("") 
     conti=ns(input("¿Desea continuar?: "))
     if conti==("n"):
