@@ -20,54 +20,57 @@ def plu(n):
 while True:
     print("TRABAJANDO CON TEXTOS")
     print("¿Que desea hacer?: ")
-    print("A)REPRODUCIR UN TEXTO")
-    print("B)CONTAR EL NUMERO DE LINEAS DE TEXTO")
-    print("C)CONTAR EL NUMERO DE PALABRAS DEL TEXTO")
-    print("D)CONTAR EL NUMER0 DE CARACTERES DEL TEXTO")
-    print("E)BUSCAR UNA PALABRA")
-    op=opt(input("Introduzca aquí su opción: "),["A","B","C","D","E"])
+    print("A)CREAR UN ARCHIVO DE TEXTO")
+    print("B)REPRODUCIR UN TEXTO")
+    print("C)CONTAR EL NUMERO DE LINEAS DE TEXTO")
+    print("D)CONTAR EL NUMERO DE PALABRAS DEL TEXTO")
+    print("E)CONTAR EL NUMER0 DE CARACTERES DEL TEXTO")
+    print("F)BUSCAR UNA PALABRA")
+    op=opt(input("Introduzca aquí su opción: "),["A","B","C","D","E","F"])
     #while op!=("A") and op!=("B") and op!=("C") and op!=("D") and op!=("E"):
         #op=input("Introduzca una opción válida: ")
-    fichero=ver_text()
-    if op==("E"):
-        palabra=input("Introduzca palabra a buscar: ")
-    contador=0
-    print("")
-    for linea in fichero:
-        if op==("A"):
-            if linea[-1]==('\n'):
-                linea=linea[:-1]
-            print(linea)
-        elif op==("B"):
-            contador+=1
-        elif op==("C"):
-            contador+=len(linea.split(" "))
-        elif op==("D"):
-            for i in linea:
-                if i==(" ") or i==('\n'):
-                    contador-=1
-                contador+=1
-        elif op==("E"):
-            linea.split(" ")
-            if palabra in linea:
-                contador+=1
-   
-    fichero.close()
-    if op==("B"):
-        print("El texto consta de",contador,"líneas")
-    elif op==("C"):
-        print("El texto consta de",contador,"palabras")
-    elif op==("D"):
-        print("El texto consta de",contador,"caracteres")
-    elif op==("E"):
-        print("La palabra se se encontró",contador,plu(contador))
-    print("") 
-    conti=ns(input("¿Desea continuar?: "))
-    if conti==("n"):
-        break
+    if op==("A"):
+        nombre_archivo=input("Escriba el nombre del nuevo archivo: ")
+        fichero=open(nombre_archivo+".txt","w")
+        fichero.write(input("Escriba texto: "))
+        fichero.close()
     else:
-        subprocess.call(["cmd.exe","/C","cls"])
-
-
-
-
+        fichero=ver_text()
+        if op==("F"):
+            palabra=input("Introduzca palabra a buscar: ")
+        contador=0
+        print("")
+        for linea in fichero:
+            if op==("B"):
+                if linea[-1]==('\n'):
+                    linea=linea[:-1]
+                print(linea)
+            elif op==("C"):
+                contador+=1
+            elif op==("D"):
+                contador+=len(linea.split(" "))
+            elif op==("E"):
+                for i in linea:
+                    if i==(" ") or i==('\n'):
+                        contador-=1
+                    contador+=1
+            elif op==("F"):
+                linea.split(" ")
+                if palabra in linea:
+                    contador+=1
+        fichero.close()
+        if op==("C"):
+            print("El texto consta de",contador,"líneas")
+        elif op==("D"):
+            print("El texto consta de",contador,"palabras")
+        elif op==("E"):
+            print("El texto consta de",contador,"caracteres")
+        elif op==("F"):
+            print("La palabra se se encontró",contador,plu(contador))
+        print("")
+        conti=ns(input("¿Desea continuar?: "))
+        if conti==("n"):
+            break
+        else:
+            subprocess.call(["cmd.exe","/C","cls"])
+        
