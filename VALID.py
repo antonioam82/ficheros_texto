@@ -23,6 +23,22 @@ def OK(n):
         n=OK(input("Caracter no valido: "))
     return n
 
+def n_val(n,tn): #FUNCION QUE INTEGRA "OKI" Y "OK".
+    if tn==("i"):
+        try:
+            n=int(n)
+        except:
+            n=n_val(input("Caracter no valido: "),"i")
+    else:
+        try:
+            n=float(n)
+        except:
+            n=n_val(input("Caracter no valido: "),"f")
+    return n
+
+#EJEMPLO
+#nu=n_val(input("Numero: "),"i")
+#print(nu)
 
 def ns(c):
     while c!=("s") and c!=("n"):
@@ -65,8 +81,7 @@ def oop(string):
         n=oop(input("Operación no válida: "))
     return n
 
-def binn(n):
-    num=n
+def binn(num):
     restos=[]
     while num>1:
         res=int(num%2)#PARA QUE EL RESTO SALGA SIN DECIMALES
@@ -98,8 +113,3 @@ def opt(o,l):
     while o not in l:
         o=input("Introduzca una opción válida: ")
     return o
-
-#EJEMPLO:
-#op=opt(input("opcion: "),["s","f","l"])
-#print(op)
-        
