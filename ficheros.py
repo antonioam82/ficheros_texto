@@ -69,8 +69,8 @@ while True:
             print("La palabra se se encontró",contador,plu(contador))
         print("")
         conti=ns(input("¿Desea continuar?: "))
-        if conti==("n"):
-            break
-        else:
-            subprocess.call(["cmd.exe","/C","cls"])
+    if conti==("n"):
+        break
+    else:
+        subprocess.call(["cmd.exe","/C","cls"])
         
