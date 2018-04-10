@@ -1,4 +1,4 @@
-from VALID import ns,opt
+from VALID import ns,opt,OKI
 import subprocess
 def ver_text():
     while True:
@@ -30,12 +30,18 @@ while True:
     #while op!=("A") and op!=("B") and op!=("C") and op!=("D") and op!=("E"):
         #op=input("Introduzca una opción válida: ")
     if op==("A"):
-        nombre_archivo=input("Escriba el nombre del nuevo archivo: ")
-        fichero=open(nombre_archivo+".txt","w")
-        fichero.write(input("Escriba texto: "))
+        nuevo_fichero=((input("Fichero: ")+".txt"))
+        fichero=open(nuevo_fichero,"w")
+        nl=OKI(input("Número de líneas: "))
+        for i in range(0,nl):
+            linea=input("Texto: ")
+            fichero.write(linea+"\n")
         fichero.close()
+
+
     else:
         fichero=ver_text()
+        print(type(fichero))
         if op==("F"):
             palabra=input("Introduzca palabra a buscar: ")
         contador=0
@@ -68,9 +74,13 @@ while True:
         elif op==("F"):
             print("La palabra se se encontró",contador,plu(contador))
         print("")
-        conti=ns(input("¿Desea continuar?: "))
+    conti=ns(input("¿Desea continuar?: "))
     if conti==("n"):
         break
     else:
         subprocess.call(["cmd.exe","/C","cls"])
         
+ 
+
+
+
