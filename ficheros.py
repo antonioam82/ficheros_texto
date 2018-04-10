@@ -37,8 +37,7 @@ while True:
             linea=input("Texto: ")
             fichero.write(linea+"\n")
         fichero.close()
-
-
+    
     else:
         fichero=ver_text()
         print(type(fichero))
