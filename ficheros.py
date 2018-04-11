@@ -7,7 +7,7 @@ def ver_text():
             fichero=open(nombre_fichero,"r")
             break
         except:
-            print("El fichero introducudo no existe",chr(7))
+            print("El fichero introducido no existe",chr(7))
     return fichero
 
 def plu(n):
@@ -37,7 +37,8 @@ while True:
             linea=input("Texto: ")
             fichero.write(linea+"\n")
         fichero.close()
-    
+
+
     else:
         fichero=ver_text()
         print(type(fichero))
@@ -80,6 +81,3 @@ while True:
         subprocess.call(["cmd.exe","/C","cls"])
         
  
-
-
-
