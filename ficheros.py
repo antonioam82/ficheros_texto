@@ -28,8 +28,6 @@ while True:
     print("F)BUSCAR UNA PALABRA")
     print("G)ANALIZADOR DE TEXTO")
     op=opt(input("Introduzca aquí su opción: "),["A","B","C","D","E","F","G"])
-    #while op!=("A") and op!=("B") and op!=("C") and op!=("D") and op!=("E"):
-        #op=input("Introduzca una opción válida: ")
     if op==("A"):
         nuevo_fichero=((input("Fichero: ")+".txt"))
         fichero=open(nuevo_fichero,"w")
@@ -38,13 +36,14 @@ while True:
             linea=input("Texto: ")
             fichero.write(linea+"\n")
         fichero.close()
-
-    elif op==("G"):
-        fichero=ver_text()
-        contador=0
+        
+    elif op=="G":
         car=[]
         elem=[]
         conta=0
+        contador=0
+        fichero=ver_text()
+        print("")
         for linea in fichero:
             for i in linea:
                 if i==(" ") or i==('\n'):
@@ -60,9 +59,10 @@ while True:
                     conta+=1
                     por=(conta*100)/contador
             print(c,("{:.2f}".format(por))+"%")
-            
-
-  
+        print(len(car),"caracteres distintos")
+        fichero.close()
+        print("")
+    
     else:
         fichero=ver_text()
         if op==("F"):
@@ -87,6 +87,7 @@ while True:
                 linea.split(" ")
                 if palabra in linea:
                     contador+=1
+    
         fichero.close()
         if op==("C"):
             print("El texto consta de",contador,"líneas")
@@ -104,7 +105,3 @@ while True:
         subprocess.call(["cmd.exe","/C","cls"])
         
  
-
-
-
-
